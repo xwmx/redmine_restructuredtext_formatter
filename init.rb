@@ -1,13 +1,13 @@
-# Redmine Markdown formatter
+# Redmine reStructuredText formatter
 require 'redmine'
 
-RAILS_DEFAULT_LOGGER.info 'Starting Markdown formatter for RedMine'
+RAILS_DEFAULT_LOGGER.info 'Starting reStructuredText formatter for Redmine'
 
-Redmine::Plugin.register :redmine_markdown_formatter do
-  name 'Markdown formatter'
-  author 'Larry Baltz'
-  description 'This provides Markdown as a wiki format'
+Redmine::Plugin.register :redmine_restructuredtext_formatter do
+  name 'reStructuredText formatter'
+  author 'William Melody'
+  description 'reStructuredText formatting for Redmine'
   version '0.0.1'
 
-  wiki_format_provider 'markdown', RedmineMarkdownFormatter::WikiFormatter, RedmineMarkdownFormatter::Helper
+  wiki_format_provider 'reStructuredText', RedmineRestructuredtextFormatter::WikiFormatter, RedmineRestructuredtextFormatter::Helper
 end
