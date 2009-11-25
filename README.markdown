@@ -1,4 +1,4 @@
-= Redmine reStructuredText Formatter
+# Redmine reStructuredText Formatter
 
 This is a redmine plugin for supporting reStructuredText as a wiki format using the [RbST gem](http://rdoc.info/projects/autodata/rbst).
 
@@ -6,7 +6,7 @@ This is a redmine plugin for supporting reStructuredText as a wiki format using 
 
 This plugin was basically created directly from Larry Baltz's [redmine\_markdown\_formatter](http://github.com/bitherder/redmine_markdown_formatter).
 
-== Installation
+## Installation
 
 * Install Python and [docutils](http://docutils.sourceforge.net/)
 * gem install RbST
