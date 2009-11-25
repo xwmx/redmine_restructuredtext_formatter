@@ -1,4 +1,4 @@
-require 'RbST'
+require 'pandoc-ruby'
 
 module RedmineRestructuredtextFormatter
   class WikiFormatter
@@ -7,7 +7,7 @@ module RedmineRestructuredtextFormatter
     end
 
     def to_html(&block)
-      RbST.new(@text).to_html
+      PandocRuby.rst(@text).to_html
     rescue => e
       return("<pre>problem parsing wiki text: #{e.message}\n"+
              "original text: \n"+
