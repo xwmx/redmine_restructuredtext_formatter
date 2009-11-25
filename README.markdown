@@ -1,6 +1,6 @@
 # Redmine reStructuredText Formatter
 
-This is a redmine plugin for supporting reStructuredText as a wiki format using the [RbST gem](http://rdoc.info/projects/autodata/rbst).
+This is a redmine plugin for supporting reStructuredText as a wiki format using the [RbST reStructuredText gem](http://rdoc.info/projects/autodata/rbst).
 
 **Note:** this is potentially slow. RbST processes reStructuredText via Python's docutils, and docutils is slow. As far as I can tell, Redmine formats text using a helper on each request, which means this plugin will likely add a few tenths of a second to each request. Maybe more.
 
