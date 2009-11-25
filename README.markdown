@@ -18,6 +18,7 @@ Pandoc is much faster than docutils and should be roughly as fast as the native 
 
 * Install Python and [docutils](http://docutils.sourceforge.net/)
 * gem install RbST
+* cd /path/to/redmine
 * script/plugin install git://github.com/autodata/redmine\_restructuredtext\_formatter.git
 * Start Redmine
 
@@ -25,8 +26,9 @@ Pandoc is much faster than docutils and should be roughly as fast as the native 
 
 * Install [Pandoc](http://johnmacfarlane.net/pandoc/)
 * gem install pandoc-ruby
-* cd vendor/plugins
+* cd /path/to/redmine/vendor/plugins
 * git clone git://github.com/autodata/redmine\_restructuredtext\_formatter.git
+* cd redmine\_restructuredtext\_formatter
 * git checkout pandoc-ruby
 * Start Redmine
 
