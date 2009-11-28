@@ -1,6 +1,6 @@
 # Redmine reStructuredText Formatter
 
-This is a redmine plugin for supporting reStructuredText as a wiki format using either the [RbST reStructuredText gem](http://rdoc.info/projects/autodata/rbst), which can convert all RST but is slow, or [PandocRuby](http://rdoc.info/projects/autodata/pandoc-ruby), which only supports a subset of RST but is fast.
+This is a redmine plugin for supporting reStructuredText as a wiki format using either [RbST](http://rdoc.info/projects/autodata/rbst), which can convert all RST but is slow, or [PandocRuby](http://rdoc.info/projects/autodata/pandoc-ruby), which only supports a subset of RST but is fast.
 
 ## Notes
 
