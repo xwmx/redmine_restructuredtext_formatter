@@ -1,4 +1,4 @@
-require 'RbST'
+require 'rbst'
 
 module RedmineRestructuredtextFormatter
   class WikiFormatter
