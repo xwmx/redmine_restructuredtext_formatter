@@ -27,6 +27,7 @@ module RedmineRestructuredtextFormatter
           javascript_include_tag("jstoolbar/lang/jstoolbar-#{current_language.to_s.downcase}") +
           javascript_include_tag("lang/restructuredtext-#{current_language.to_s.downcase}", :plugin => 'redmine_restructuredtext_formatter') +
           stylesheet_link_tag('jstoolbar') +
+          stylesheet_link_tag('html4css1', :plugin => 'redmine_restructuredtext_formatter') +
           stylesheet_link_tag('restructuredtext', :plugin => 'redmine_restructuredtext_formatter')
         end
         @heads_for_wiki_formatter_included = true

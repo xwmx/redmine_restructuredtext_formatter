@@ -1,3 +1,13 @@
+/* Styles for ReST */
+
+.underline { text-decoration: underline; }
+.strike { text-decoration: line-through; }
+.overline { text-decoration: overline; }
+.rtl { direction: rtl; }
+.ltr { direction: ltr; }
+.rle { direction: rtl; unicode-bidi: embed; }                                                                                                                
+.lre { direction: ltr; unicode-bidi: embed; }                                                                                                                
+
 /* Buttons
 -------------------------------------------------------- */
 .jstb_em {
