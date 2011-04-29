@@ -10,12 +10,13 @@ module RedmineRestructuredtextFormatter
         link_to(l(:label_help), url,
         :onclick => "window.open(\"#{url}\", \"\", \"resizable=yes, location=no, width=300, height=640, menubar=no, status=no, scrollbars=yes\"); return false;")
 
-	  javascript_tag("var toolbar = new jsToolBar($('#{field_id}')); toolbar.setHelpLink('#{help_link}'); toolbar.draw();")
+      javascript_tag("var toolbar = new jsToolBar($('#{field_id}')); toolbar.setHelpLink('#{help_link}'); toolbar.draw();")
     end
 
 
     def initial_page_content(page)
-      "#{'='*page.pretty_title.length}\n#{page.pretty_title}\n#{'='*page.pretty_title.length}"
+      line = '=' * page.pretty_title.mb_chars.length
+      "#{line}\n#{page.pretty_title}\n#{line}"
     end
 
     def heads_for_wiki_formatter
@@ -28,8 +29,8 @@ module RedmineRestructuredtextFormatter
           stylesheet_link_tag('jstoolbar') +
           stylesheet_link_tag('restructuredtext', :plugin => 'redmine_restructuredtext_formatter')
         end
-		@heads_for_wiki_formatter_included = true
+        @heads_for_wiki_formatter_included = true
       end
-	end
+    end
   end
 end
