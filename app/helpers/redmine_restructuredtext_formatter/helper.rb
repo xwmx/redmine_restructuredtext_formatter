@@ -12,6 +12,7 @@ module RedmineRestructuredtextFormatter
       javascript_include_tag('jstoolbar/jstoolbar') +
         javascript_include_tag('restructuredtext', :plugin => 'redmine_restructuredtext_formatter') +
         javascript_include_tag("jstoolbar/lang/jstoolbar-#{current_language}") +
+        javascript_include_tag("lang/restructuredtext-#{current_language}", :plugin => 'redmine_restructuredtext_formatter') +
         javascript_tag("var toolbar = new jsToolBar($('#{field_id}')); toolbar.setHelpLink('#{help_link}'); toolbar.draw();")
     end
 
