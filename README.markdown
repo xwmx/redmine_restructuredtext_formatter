@@ -1,6 +1,6 @@
 # Redmine reStructuredText Formatter
 
-This is a redmine plugin for supporting reStructuredText as a wiki format using either [RbST](http://rdoc.info/projects/alphabetum/rbst), which can convert all RST but is slow, or [PandocRuby](http://rdoc.info/projects/alphabetum/pandoc-ruby), which only supports a subset of RST but is fast.
+This is a Redmine plugin for supporting reStructuredText as a wiki format using either [RbST](http://rdoc.info/projects/alphabetum/rbst), which can convert all RST but is slow, or [PandocRuby](http://rdoc.info/projects/alphabetum/pandoc-ruby), which only supports a subset of RST but is fast.
 
 ## Notes
 
@@ -10,7 +10,7 @@ This is potentially quite slow. RbST processes reStructuredText via Python's doc
 
 ### PandocRuby version (pandoc-ruby branch)
 
-Pandoc is much faster than docutils and should be roughly as fast as the native textile, but it only supports a subset of RST, so some features like tables are not available. This version is available on the `pandoc-ruby` branch.
+Pandoc is much faster than docutils and should be roughly as fast as the native textile, but it only supports a subset of RST, so some features like tables are not available. This version is available on the `pandoc-ruby` branch. This branch doesn't have a toolbar.
 
 ## Installation
 
@@ -19,7 +19,7 @@ Pandoc is much faster than docutils and should be roughly as fast as the native 
 * Install Python and [docutils](http://docutils.sourceforge.net/)
 * gem install RbST
 * cd /path/to/redmine
-* script/plugin install git://github.com/alphabetum/redmine\_restructuredtext\_formatter.git
+* script/plugin install git://github.com/ebrahim/redmine\_restructuredtext\_formatter.git
 * Start Redmine
 
 ### PandocRuby version
