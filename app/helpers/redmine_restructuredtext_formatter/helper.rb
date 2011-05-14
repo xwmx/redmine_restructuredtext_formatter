@@ -19,6 +19,7 @@ module RedmineRestructuredtextFormatter
       var toolbar = new jsToolBar(editor, textarea);
       toolbar.setHelpLink('#{help_link}');
       toolbar.draw();
+      [#{I18n.t(:direction) == 'rtl' ? "'.jstb_bq', '.jstb_unbq'" : ''}].each(function(button) { $$(button).last().addClassName('flip'); });
       EOD
     end
 
