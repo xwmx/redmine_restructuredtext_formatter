@@ -55,8 +55,8 @@ jsToolBar.prototype.elements.h1 = {
 	fn: {
 		wiki: function() { 
 			this.encloseLineSelection('', '',function(str) {
-				str = str.replace(/^[-=~#+\s]*/, '');
-				str = str.replace(/[-=~#+\s]*$/, '');
+				str = str.replace(/^\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*/, '');
+				str = str.replace(/\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*$/, '');
 				line = Array(str.length + 1).join('=');
 				str = line + "\n" + str + "\n" + line;
 				return str;
@@ -70,8 +70,8 @@ jsToolBar.prototype.elements.h2 = {
 	fn: {
 		wiki: function() { 
 			this.encloseLineSelection('', '',function(str) {
-				str = str.replace(/^[-=~#+\s]*/, '');
-				str = str.replace(/[-=~#+\s]*$/, '');
+				str = str.replace(/^\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*/, '');
+				str = str.replace(/\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*$/, '');
 				line = Array(str.length + 1).join('+');
 				str = line + "\n" + str + "\n" + line;
 				return str;
@@ -85,8 +85,8 @@ jsToolBar.prototype.elements.h3 = {
 	fn: {
 		wiki: function() { 
 			this.encloseLineSelection('', '',function(str) {
-				str = str.replace(/^[-=~#+\s]*/, '');
-				str = str.replace(/[-=~#+\s]*$/, '');
+				str = str.replace(/^\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*/, '');
+				str = str.replace(/\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*$/, '');
 				line = Array(str.length + 1).join('-');
 				str = line + "\n" + str + "\n" + line;
 				return str;
