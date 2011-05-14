@@ -10,7 +10,12 @@ module RedmineRestructuredtextFormatter
         link_to(l(:label_help), url,
         :onclick => "window.open(\"#{url}\", \"\", \"resizable=yes, location=no, width=300, height=640, menubar=no, status=no, scrollbars=yes\"); return false;")
 
-      javascript_tag("var toolbar = new jsToolBar($('#{field_id}')); toolbar.setHelpLink('#{help_link}'); toolbar.draw();")
+      javascript_tag(<<-EOD);
+      var toolbar = new jsToolBar($('#{field_id}'));
+      toolbar.setHelpLink('#{help_link}');
+      toolbar.draw();
+      [#{I18n.t(:direction) == 'rtl' ? "'.jstb_bq', '.jstb_unbq'" : ''}].each(function(button) { $$(button).last().addClassName('flip'); });
+      EOD
     end
 
 
