@@ -72,7 +72,7 @@ jsToolBar.prototype.elements.h2 = {
 			this.encloseLineSelection('', '',function(str) {
 				str = str.replace(/^[-=~#+\s]*/, '');
 				str = str.replace(/[-=~#+\s]*$/, '');
-				line = Array(str.length + 1).join('-');
+				line = Array(str.length + 1).join('+');
 				str = line + "\n" + str + "\n" + line;
 				return str;
 			});
@@ -87,7 +87,7 @@ jsToolBar.prototype.elements.h3 = {
 			this.encloseLineSelection('', '',function(str) {
 				str = str.replace(/^[-=~#+\s]*/, '');
 				str = str.replace(/[-=~#+\s]*$/, '');
-				line = Array(str.length + 1).join('~');
+				line = Array(str.length + 1).join('-');
 				str = line + "\n" + str + "\n" + line;
 				return str;
 			});
