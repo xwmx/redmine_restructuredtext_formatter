@@ -48,6 +48,53 @@ jsToolBar.prototype.elements.code = {
 // spacer
 jsToolBar.prototype.elements.space1 = {type: 'space'}
 
+// LTR block toggle
+jsToolBar.prototype.elements.ltr = {
+	type: 'button',
+	title: 'LTR',
+	fn: {
+		wiki: function() {
+			this.encloseLineSelection('','',function(str) {
+				str = str.replace(/\r/g,'');
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
+				// If it is already LTR, un-LTR-ize it
+				// Else LTR-ize it
+				if (str.match(/^\s*.. class::\s*ltr\n\n/)) {
+					str = str.replace(/^\s*.. class::\s*ltr\n\n/,'');
+					return "\n" + str.replace(/(\n|^)(\t|  )/g,"$1");
+				}
+				str = str.replace(/(\n|^)/g,"$1  ");
+				return "\n.. class:: ltr\n\n" + str + "\n";
+			});
+		}
+	}
+}
+
+// RTL block toggle
+jsToolBar.prototype.elements.rtl = {
+	type: 'button',
+	title: 'RTL',
+	fn: {
+		wiki: function() {
+			this.encloseLineSelection('','',function(str) {
+				str = str.replace(/\r/g,'');
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
+				// If it is already RTL, un-RTL-ize it
+				// Else RTL-ize it
+				if (str.match(/^\s*.. class::\s*rtl\n\n/)) {
+					str = str.replace(/^\s*.. class::\s*rtl\n\n/,'');
+					return "\n" + str.replace(/(\n|^)(\t|  )/g,"$1");
+				}
+				str = str.replace(/(\n|^)/g,"$1  ");
+				return "\n.. class:: rtl\n\n" + str + "\n";
+			});
+		}
+	}
+}
+
+// spacer
+jsToolBar.prototype.elements.space1 = {type: 'space'}
+
 // headings
 jsToolBar.prototype.elements.h1 = {
 	type: 'button',
@@ -55,6 +102,8 @@ jsToolBar.prototype.elements.h1 = {
 	fn: {
 		wiki: function() { 
 			this.encloseLineSelection('', '',function(str) {
+				str = str.replace(/\r/g,'');
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
 				str = str.replace(/^\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*/, '');
 				str = str.replace(/\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*$/, '');
 				line = Array(str.length + 1).join('=');
@@ -70,6 +119,8 @@ jsToolBar.prototype.elements.h2 = {
 	fn: {
 		wiki: function() { 
 			this.encloseLineSelection('', '',function(str) {
+				str = str.replace(/\r/g,'');
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
 				str = str.replace(/^\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*/, '');
 				str = str.replace(/\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*$/, '');
 				line = Array(str.length + 1).join('+');
@@ -85,6 +136,8 @@ jsToolBar.prototype.elements.h3 = {
 	fn: {
 		wiki: function() { 
 			this.encloseLineSelection('', '',function(str) {
+				str = str.replace(/\r/g,'');
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
 				str = str.replace(/^\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*/, '');
 				str = str.replace(/\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*$/, '');
 				line = Array(str.length + 1).join('-');
@@ -135,6 +188,7 @@ jsToolBar.prototype.elements.bq = {
 		wiki: function() {
 			return this.encloseLineSelection('', "\n", function(str) {
 				str = str.replace(/\r/g,'');
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
 				return str.replace(/(\n|^)/g,"$1  ");
 			});
 		}
@@ -149,6 +203,7 @@ jsToolBar.prototype.elements.unbq = {
 		wiki: function() {
 			this.encloseLineSelection('','',function(str) {
 				str = str.replace(/\r/g,'');
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
 				return str.replace(/(\n|^)(\t|  )/g,"$1");
 			});
 		}
@@ -163,6 +218,7 @@ jsToolBar.prototype.elements.pre = {
 		wiki: function() {
 			this.encloseLineSelection("\n::\n\n","\n",function(str) {
 				str = str.replace(/\r/g,'');
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
 				return str.replace(/(\n|^)/g,"$1  ");
 			});
 		}
@@ -179,8 +235,9 @@ jsToolBar.prototype.elements.unpre = {
 				str = str.replace(/\r/g,'');
 				if (!str.match(/^\s*::\n\n/))
 					return str;
-				str = str.replace(/^\s*::\n\n/,'');
-				return str.replace(/(\n|^)(\t|  )/g,"$1");
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
+				str = str.replace(/^::\n/,'');		// Leave one of the newlines in result
+				return str.replace(/(\n|^)(\t|  )/g,"$1") + "\n";
 			});
 		}
 	}
@@ -203,10 +260,12 @@ jsToolBar.prototype.elements.img = {
 	title: 'Image',
 	fn: {
 		wiki: function() {
-					this.encloseSelection('', '', function(str) {
-						altText = str.replace(/^\/?(?:[^\/]*\/)*([^\/]*)$/, '$1');
-						return ".. image:: " + str + "\n  :alt: " + altText + "\n";
-					});
-				}
+			this.encloseSelection('', '', function(str) {
+				str = str.replace(/\r/g,'');
+				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
+				altText = str.replace(/^\/?(?:[^\/]*\/)*([^\/]*)$/, '$1');
+				return ".. image:: " + str + "\n  :alt: " + altText + "\n";
+			});
+		}
 	}
 }
