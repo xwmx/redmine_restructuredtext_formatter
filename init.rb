@@ -7,7 +7,7 @@ Redmine::Plugin.register :redmine_restructuredtext_formatter do
   name 'reStructuredText formatter'
   author 'William Melody'
   description 'reStructuredText formatting for Redmine'
-  version '0.1.0-ebrahim'
+  version '0.2.0-ebrahim'
 
   wiki_format_provider 'reStructuredText', RedmineRestructuredtextFormatter::WikiFormatter, RedmineRestructuredtextFormatter::Helper
 end
