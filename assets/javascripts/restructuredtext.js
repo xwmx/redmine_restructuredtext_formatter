@@ -5,7 +5,7 @@ jsToolBar.prototype.elements.strong = {
 	type: 'button',
 	title: 'Strong',
 	fn: {
-		wiki: function() { this.singleTag("**", "**") }
+		wiki: function() { this.singleTag(" **", "** ") }
 	}
 }
 
@@ -14,7 +14,7 @@ jsToolBar.prototype.elements.em = {
 	type: 'button',
 	title: 'Emphasized',
 	fn: {
-		wiki: function() { this.singleTag("*", "*") }
+		wiki: function() { this.singleTag(" *", "* ") }
 	}
 }
 
@@ -41,7 +41,7 @@ jsToolBar.prototype.elements.code = {
 	type: 'button',
 	title: 'Code',
 	fn: {
-		wiki: function() { this.singleTag('``', '``') }
+		wiki: function() { this.singleTag(' ``', '`` ') }
 	}
 }
 
@@ -107,7 +107,7 @@ jsToolBar.prototype.elements.h1 = {
 				str = str.replace(/^\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*/, '');
 				str = str.replace(/\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*$/, '');
 				line = Array(str.length + 1).join('=');
-				str = line + "\n" + str + "\n" + line;
+				str = str + "\n" + line + "\n";
 				return str;
 			});
 		}
@@ -123,8 +123,8 @@ jsToolBar.prototype.elements.h2 = {
 				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
 				str = str.replace(/^\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*/, '');
 				str = str.replace(/\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*$/, '');
-				line = Array(str.length + 1).join('+');
-				str = line + "\n" + str + "\n" + line;
+				line = Array(str.length + 1).join('-');
+				str = str + "\n" + line + "\n";
 				return str;
 			});
 		}
@@ -140,8 +140,8 @@ jsToolBar.prototype.elements.h3 = {
 				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
 				str = str.replace(/^\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*/, '');
 				str = str.replace(/\s*["#$%'*+,-.\/:;<=>?@\\^_`|~]*\s*$/, '');
-				line = Array(str.length + 1).join('-');
-				str = line + "\n" + str + "\n" + line;
+				line = Array(str.length + 1).join('~');
+				str = str + "\n" + line + "\n";
 				return str;
 			});
 		}
@@ -171,7 +171,7 @@ jsToolBar.prototype.elements.ol = {
 	fn: {
 		wiki: function() {
 					this.encloseLineSelection('','',function(str) {
-						return str.replace(/((?:\n|^)\s*)([#*]|\d+\.)?\s*/g,"$1# ");
+						return str.replace(/((?:\n|^)\s*)([#*]|\d+\.)?\s*/g,"$1#\. ");
 					});
 				}
 	}
