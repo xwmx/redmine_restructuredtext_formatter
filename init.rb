@@ -1,13 +1,15 @@
 # Redmine reStructuredText formatter
 require 'redmine'
+require 'redmine/wiki_formatting/restructuredtext/formatter'
+require 'redmine/wiki_formatting/restructuredtext/helper'
 
-RAILS_DEFAULT_LOGGER.info 'Starting reStructuredText formatter for Redmine'
+Rails.logger.info 'Starting reStructuredText formatter for Redmine'
 
 Redmine::Plugin.register :redmine_restructuredtext_formatter do
   name 'reStructuredText formatter'
   author 'William Melody'
   description 'reStructuredText formatting for Redmine'
-  version '0.2.0-ebrahim'
+  version '0.2.1'
 
-  wiki_format_provider 'reStructuredText', RedmineRestructuredtextFormatter::WikiFormatter, RedmineRestructuredtextFormatter::Helper
+  wiki_format_provider 'reStructuredText', Redmine::WikiFormatting::Restructuredtext::WikiFormatter, Redmine::WikiFormatting::Restructuredtext::Helper
 end
