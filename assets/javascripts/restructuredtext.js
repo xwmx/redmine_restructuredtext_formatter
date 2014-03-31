@@ -100,7 +100,7 @@ jsToolBar.prototype.elements.h1 = {
 	type: 'button',
 	title: 'Heading 1',
 	fn: {
-		wiki: function() { 
+		wiki: function() {
 			this.encloseLineSelection('', '',function(str) {
 				str = str.replace(/\r/g,'');
 				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
@@ -117,7 +117,7 @@ jsToolBar.prototype.elements.h2 = {
 	type: 'button',
 	title: 'Heading 2',
 	fn: {
-		wiki: function() { 
+		wiki: function() {
 			this.encloseLineSelection('', '',function(str) {
 				str = str.replace(/\r/g,'');
 				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection
@@ -134,7 +134,7 @@ jsToolBar.prototype.elements.h3 = {
 	type: 'button',
 	title: 'Heading 3',
 	fn: {
-		wiki: function() { 
+		wiki: function() {
 			this.encloseLineSelection('', '',function(str) {
 				str = str.replace(/\r/g,'');
 				str = str.replace(/^\s+|\s+$/g, '');		// Trim the selection

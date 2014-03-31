@@ -5,8 +5,8 @@
 .overline { text-decoration: overline; }
 .rtl { direction: rtl; }
 .ltr { direction: ltr; }
-.rle { direction: rtl; unicode-bidi: embed; }                                                                                                                
-.lre { direction: ltr; unicode-bidi: embed; }                                                                                                                
+.rle { direction: rtl; unicode-bidi: embed; }
+.lre { direction: ltr; unicode-bidi: embed; }
 
 /* Buttons */
 .jstb_unpre {
