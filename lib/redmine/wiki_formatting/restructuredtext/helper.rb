@@ -6,17 +6,13 @@ module Redmine
 
         def wikitoolbar_for(field_id)
           heads_for_wiki_formatter
-          url = ::Redmine::Utils.relative_url_root + "/plugin_assets/redmine_restructuredtext_formatter/help/restructuredtext_syntax.html"
-          help_link = l(:setting_text_formatting) + ': ' +
-            link_to(l(:label_help), url,
-            :onclick => "window.open(\"#{url}\", \"\", \"resizable=yes, location=no, width=300, height=640, menubar=no, status=no, scrollbars=yes\"); return false;")
-
+          url = "#{::Redmine::Utils.relative_url_root}/plugin_assets/redmine_restructuredtext_formatter/help/restructuredtext_syntax.html"
           javascript_tag(<<-EOD);
-          var toolbar = new jsToolBar($('#{field_id}'));
-          toolbar.setHelpLink('#{help_link}');
+          var toolbar = new jsToolBar(document.getElementById('#{field_id}'));
+          toolbar.setHelpLink('#{escape_javascript url}');
           toolbar.draw();
+          $.each([#{::I18n.t(:direction) == 'rtl' ? "'.jstb_bq', '.jstb_unbq'" : ''}], function(i, button) { $(button).addClass('flip'); });
           EOD
-          # [#{I18n.t(:direction) == 'rtl' ? "'.jstb_bq', '.jstb_unbq'" : ''}].each(function(button) { $$(button).last().addClassName('flip'); });
         end
 
 

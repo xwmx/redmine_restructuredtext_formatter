@@ -269,3 +269,12 @@ jsToolBar.prototype.elements.img = {
 		}
 	}
 }
+
+// help
+jsToolBar.prototype.elements.help = {
+	type: 'button',
+	title: 'Help',
+	fn: {
+		wiki: function() { window.open(this.help_link, '', 'resizable=yes, location=no, width=640, height=640, menubar=no, status=no, scrollbars=yes') }
+	}
+}
