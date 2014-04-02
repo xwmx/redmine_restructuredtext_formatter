@@ -1,0 +1,8 @@
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'html4css1', :plugin => 'redmine_restructuredtext_formatter' %>
+  <%= stylesheet_link_tag 'restructuredtext', :plugin => 'redmine_restructuredtext_formatter' %>
+<% end %>
+
+<div class="wiki">
+  <%= textilizable content, :text, :attachments => content.page.attachments %>
+</div>
